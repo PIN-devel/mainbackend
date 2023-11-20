@@ -23,4 +23,6 @@ urlpatterns = [
     path('auth/', include('dj_rest_auth.urls')),
     path('auth/registration/', include('dj_rest_auth.registration.urls')),
     path('auth/deactivation/', deactivate_user, name='deactivate-user'),
+
+    path('posts/', include('posts.urls')),
 ]
