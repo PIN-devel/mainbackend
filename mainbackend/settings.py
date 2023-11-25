@@ -26,7 +26,7 @@ with open(BASE_DIR / 'env/secret_key.txt') as f:
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -56,6 +56,8 @@ INSTALLED_APPS = [
 
     'dj_rest_auth',
     'dj_rest_auth.registration',
+
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +70,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     'allauth.account.middleware.AccountMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'mainbackend.urls'
@@ -159,3 +163,5 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
 }
+
+CORS_ALLOW_ALL_ORIGINS = True
